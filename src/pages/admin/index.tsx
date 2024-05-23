@@ -5,7 +5,7 @@ import { ElementEnum, ElementItem } from "../../interfaces/element";
 import CustomElement from "../../components/custom-element";
 import { uuidv4 } from "../../utils/generate-uuid";
 import CustomForm from "../../components/forms";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const initialValue = {
   id: "",
@@ -14,7 +14,6 @@ const initialValue = {
 };
 
 const AdminPage: React.FC = () => {
-  const navigate = useNavigate();
   const [instances, setInstances] = useState<ElementItem[]>([]);
   const [selectedInstance, setSelectedInstance] =
     useState<ElementItem>(initialValue);
@@ -64,10 +63,6 @@ const AdminPage: React.FC = () => {
 
   const handleSave = () => {
     localStorage.setItem("instances", JSON.stringify(instances));
-  };
-
-  const handleView = () => {
-    navigate("/consumer", {});
   };
   return (
     <div className="admin-page">
